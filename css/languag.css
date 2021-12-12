@@ -1,0 +1,42 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css");
+.twenty-five{
+    background-color: #088740;
+    height: 25vh; 
+}
+.fifty{
+    background-color: #088740;
+    background-size: cover;
+    height: 50vh; 
+}
+.ten{
+    background-color: #088740;
+    background-size: cover;
+    height: 10vh; 
+}
+.fifteen{
+    background-color: #088740;
+    background-size: cover;
+    height: 15vh; 
+}
+img[alt='where'] {
+  /*border: 5px solid #F5EEDC;*/
+  width: 280px ;
+  height: 280px;
+}
+h2{
+    text-align:center;
+    color: white;   
+}
+.center{
+    text-align:center;
+    line-height:100px;
+}
+/*h1{
+    color: white;
+}
+.right{
+    text-align:right;
+}
+.left{
+    text-align:left;
+}*/
