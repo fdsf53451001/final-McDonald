@@ -1,0 +1,111 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css");
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500,700,900&display=swap");
+.twenty-five{
+    background-color: #088740;
+    height: 25vh; 
+}
+.thirty{
+    background-color: #088740;
+    height: 29vh; 
+}
+.fifty{
+    background-color: #088740;
+    background-size: cover;
+    height: 50vh; 
+}
+.ten{
+    background-color: #088740;
+    background-size: cover;
+    height: 10vh; 
+}
+.five{
+    background-color: #088740;
+    background-size: cover;
+    height: 5vh; 
+}
+.fifteen{
+    background-color: #088740;
+    background-size: cover;
+    height: 15vh; 
+}
+.onehundred{
+    background-color: #088740;
+    background-size: cover;
+    height: 100vh; 
+}
+img[alt='where'] {
+  /*border: 5px solid #F5EEDC;*/
+  width: 280px ;
+  height: 280px;
+}
+h2{
+    text-align:center;
+    color: white;   
+}
+.center{
+    text-align:center;
+    line-height:100px;
+}
+a{
+    color: white;
+    text-decoration:none;
+} 
+.side-menu{
+    overflow-y:auto;
+}
+.side-menu-x{
+    overflow-x:auto;
+}
+a:hover
+{
+    color: white;
+}
+nav li {
+    display: block;
+    padding: 30px;
+    color: #fff;
+    font-size: 30px;
+    text-decoration: none;
+    position: relative;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+.scrollbar::-webkit-scrollbar-track
+{
+    border-radius: 10px;
+    background-color: #088740;
+}
+
+.scrollbar::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #35589A;
+}
+
+.scrollbar::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    background-color: #A6CF98;
+}
+.card 
+{
+    display:inline-block;
+    padding: 5px;
+    margin: 8px;
+}
+.scrollbar2::-webkit-scrollbar-track
+{
+    border-radius: 10px;
+    background-color: #088740;
+}
+
+.scrollbar2::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #7CD1B8;
+}
+
+.scrollbar2::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    background-color: #7CD1B8;
+}
