@@ -1,0 +1,26 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css");
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500,700,900&display=swap");
+.twenty-five{
+    background-color: #088740;
+    height: 25vh; 
+}
+button{
+    margin: 10px;
+}
+/*.pos-right
+{
+    position: absolute;
+    right: 150px;
+}*/
+.fourty{
+    background-color: #088740;
+    height: 40vh; 
+}
+h2{
+    color: white;
+    margin: 20px;
+}
+.end{
+    background-color: #088740;
+    height: 35vh; 
+}
