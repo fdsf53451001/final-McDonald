@@ -1,0 +1,2 @@
+loadFoodType();
+loadFoodOption('M1');
