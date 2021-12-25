@@ -1,17 +1,17 @@
 function loadFoodType(){
-    $.post({
-        url:SERVER_ADDRESS+'api/foodtype.php',
-        },function(jsonResult){
-            let result = JSON.parse(jsonResult);
-            if(result['sucess']==='true'){
-                console.log(result);
-            }
-        }
-    );
+    // $.post({
+    //     url:SERVER_ADDRESS+'api/foodtype.php',
+    //     },function(jsonResult){
+    //         let result = JSON.parse(jsonResult);
+    //         if(result['sucess']==='true'){
+    //             console.log(result);
+    //         }
+    //     }
+    // );
     data = [{"id":"M1","name":"主餐"},{"id":"A1","name":"點心"},{"id":"D1","name":"飲料"}]
     append_food = [];
     for(let i=0;i<data.length;i++){
-        append_food += '<li onclick="loadFoodOption(\''+data[i]['id']+'\')"><a href="#">'+data[i]['name']+'</a><img src="img/主餐.png"></li>';
+        append_food += '<li onclick="loadFoodOption(\''+data[i]['id']+'\')"><a href="#">'+data[i]['name']+'</a><img class="food-type-photo" src="img/主餐.png"></li>';
     }
     $('.menu-item').html(append_food);
     console.log('load food type success');
@@ -38,16 +38,32 @@ function loadFoodOption(option){
     append_food = [];
     for (let i = 0; i < data.length; i++) {
         if(data[i].avaliable==='1'){
-            append_food += '<div class="card" style="width: 22rem; height: ;">'
+            append_food += '<div class="card bg-light singal-food-card">'
             append_food += '<img class="card-img-top" src="'+data[i]['img']+'" alt="'+data[i]['name']+'" width="140" height="220">'
             append_food += '<div class="card-body">'
             append_food += '<h5 class="card-title">'+data[i]['name']+'</h5>'
-            append_food += '<p class="card-text">$價錢</p>'
-            append_food += '<a href="#" class="btn btn-primary">選擇</a>'
+            // append_food += '<p class="card-text">$價錢</p>'
+            append_food += '<a href="#" class="btn btn-primary" onclick="food_choose(\''+data[i]['id']+'\')">選擇</a>'
             append_food += '</div>'
             append_food += '</div>'
         }
     }
     $('.food-list').html(append_food);
     console.log('load food option success');
+}
+
+function loadFoodDetail(food_id){
+    // $.post({
+    //     url:SERVER_ADDRESS+'api/get_singlefood.php?id=\''+food_id+'\'',
+    //     },function(jsonResult){
+    //         let result = JSON.parse(jsonResult);
+    //         if(result['sucess']==='true'){
+    //             console.log(result);
+    //         }
+    //     }
+    // );
+    data=[{"id":"M00001","name":"炸蝦天婦羅安格斯黑牛堡","price":"154","img":"https:\/\/github.com\/pei-ci\/Macdonald_Pictures\/blob\/main\/McD_Menu\/Main\/Burger\/Shrimp_Angus_Beef_Burger.PNG?raw=true"},{"id":"S10001","name":"炸蝦天婦羅安格斯黑牛堡套餐","price":"269","img":"https:\/\/github.com\/pei-ci\/Macdonald_Pictures\/blob\/main\/McD_Menu\/Main\/Burger\/Shrimp_Angus_Beef_Burger.PNG?raw=true"}];
+    food_detail=[];
+    $('.main-display').html(food_detail);
+    //show food detail here
 }

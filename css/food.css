@@ -1,15 +1,16 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css");
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500,700,900&display=swap");
-.twenty-five{
+body{
     background-color: #088740;
+}
+
+.twenty-five{
     height: 25vh; 
 }
 .thirty{
-    background-color: #088740;
     height: 29vh; 
 }
 .fifty{
-    background-color: #088740;
     background-size: cover;
     height: 50vh; 
 }
@@ -19,17 +20,14 @@
     height: 10vh; 
 }
 .five{
-    background-color: #088740;
     background-size: cover;
     height: 5vh; 
 }
 .fifteen{
-    background-color: #088740;
     background-size: cover;
     height: 15vh; 
 }
 .onehundred{
-    background-color: #088740;
     background-size: cover;
     height: 100vh; 
 }
@@ -62,7 +60,8 @@ a:hover
 }
 nav li {
     display: block;
-    padding: 30px;
+    /* padding: 30px; */
+    margin-bottom: 2rem;
     color: #fff;
     font-size: 30px;
     text-decoration: none;
@@ -92,6 +91,12 @@ nav li {
     padding: 5px;
     margin: 8px;
 }
+
+.food-detail-card{
+    width: 97%;
+    height: 65vh;
+}
+
 .scrollbar2::-webkit-scrollbar-track
 {
     border-radius: 10px;
@@ -108,4 +113,12 @@ nav li {
 {
     border-radius: 10px;
     background-color: #7CD1B8;
+}
+
+.food-type-photo{
+    width:10rem;
+}
+
+.singal-food-card{
+    width:20rem;
 }

@@ -1,0 +1,41 @@
+.choice-photo{
+    display:block; 
+    margin:auto; 
+    height: 150px;
+    width: 150px;
+}
+
+.choice{
+    display:flex;
+    flex-direction: column;
+}
+
+.choice-word-center{
+    margin: auto;
+}
+
+body{
+    background-color: #088740;
+}
+.payment-form{
+    background-color: #088740;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.word-center{
+    margin: auto;
+}
+
+.col-md-1-5 {
+    width: 20%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
