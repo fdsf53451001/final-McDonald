@@ -2,10 +2,11 @@ function loadFoodType(){
     $.post({
         url:SERVER_ADDRESS+'foodtype'+LANGUAGE_POSTFIX+'.php',
         },function(jsonResult){
-            let result = JSON.parse(jsonResult);
-            if(result['sucess']==='true'){
-                console.log(result);
-            }
+            // let result = JSON.parse(jsonResult);
+            // if(result['sucess']==='true'){
+            //     console.log(result);
+            // }
+            console.log(jsonResult);
         }
     );
     data = [{"id":"M1","name":"主餐","img":"https:\/\/github.com\/pei-ci\/Macdonald_Pictures\/blob\/main\/McD_Menu\/Main\/Burger\/BigMac.PNG?raw=true"},{"id":"M2","name":"飲料","img":"https:\/\/github.com\/pei-ci\/Macdonald_Pictures\/blob\/main\/McD_Menu\/Beverage\/Coca-Cola.PNG?raw=true"},{"id":"M3","name":"點心","img":"https:\/\/github.com\/pei-ci\/Macdonald_Pictures\/blob\/main\/McD_Menu\/Desserts\/French_Fries.PNG?raw=true"}]
