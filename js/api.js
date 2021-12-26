@@ -1,13 +1,13 @@
 function loadFoodType(){
-    // $.post({
-    //     url:SERVER_ADDRESS+'api/foodtype.php',
-    //     },function(jsonResult){
-    //         let result = JSON.parse(jsonResult);
-    //         if(result['sucess']==='true'){
-    //             console.log(result);
-    //         }
-    //     }
-    // );
+    $.post({
+        url:SERVER_ADDRESS+'api/foodtype.php',
+        },function(jsonResult){
+            let result = JSON.parse(jsonResult);
+            if(result['sucess']==='true'){
+                console.log(result);
+            }
+        }
+    );
     data = [{"id":"M1","name":"主餐"},{"id":"A1","name":"點心"},{"id":"D1","name":"飲料"}]
     append_food = [];
     for(let i=0;i<data.length;i++){
