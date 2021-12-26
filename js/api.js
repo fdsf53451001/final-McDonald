@@ -1,6 +1,6 @@
 function loadFoodType(){
     $.post({
-        url:SERVER_ADDRESS+'api/foodtype.php',
+        url:SERVER_ADDRESS+'api/foodtype'+LANGUAGE_POSTFIX+'.php',
         },function(jsonResult){
             let result = JSON.parse(jsonResult);
             if(result['sucess']==='true'){
@@ -19,7 +19,7 @@ function loadFoodType(){
 
 function loadFoodOption(option){
     // $.post({
-    //     url:SERVER_ADDRESS+'api/get_option.php?id='+option+'',
+    //     url:SERVER_ADDRESS+'api/get_option'+LANGUAGE_POSTFIX+'.php?id='+option+'',
     //     },function(jsonResult){
     //         let result = JSON.parse(jsonResult);
     //         if(result['sucess']==='true'){
@@ -43,7 +43,7 @@ function loadFoodOption(option){
             append_food += '<div class="card-body">'
             append_food += '<h5 class="card-title">'+data[i]['name']+'</h5>'
             // append_food += '<p class="card-text">$價錢</p>'
-            append_food += '<a href="#" class="btn btn-primary" onclick="food_choose(\''+data[i]['id']+'\')">選擇</a>'
+            append_food += '<a href="#" class="btn btn-primary word-group-0" onclick="food_choose(\''+data[i]['id']+'\')">選擇</a>'
             append_food += '</div>'
             append_food += '</div>'
         }
@@ -54,7 +54,7 @@ function loadFoodOption(option){
 
 function loadFoodDetail(food_id){
     // $.post({
-    //     url:SERVER_ADDRESS+'api/get_singlefood.php?id=\''+food_id+'\'',
+    //     url:SERVER_ADDRESS+'api/get_singlefood'+LANGUAGE_POSTFIX+'.php?id=\''+food_id+'\'',
     //     },function(jsonResult){
     //         let result = JSON.parse(jsonResult);
     //         if(result['sucess']==='true'){
