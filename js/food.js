@@ -1,9 +1,15 @@
 loadFoodType();
 loadFoodOption('M1');
 
+function food_type_choose(option){
+    loadFoodOption(option);
+    renderPage();
+}
+
 function food_choose(food_id){
     // console.log(food_id);
     loadFoodDetail(food_id);
+    $("#shopingcart-row")[0].hidden = true;
     renderPage();
 }
 

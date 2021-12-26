@@ -97,6 +97,17 @@ nav li {
     height: 65vh;
 }
 
+.singal-food-card{
+    width: 200px;
+    height: 230px;
+}
+
+.singal-food-card-image{
+    width: 150px;
+    height: 150px;
+    margin-left: 70px;
+}
+
 .scrollbar2::-webkit-scrollbar-track
 {
     border-radius: 10px;
@@ -117,6 +128,7 @@ nav li {
 
 .food-type-photo{
     width:10rem;
+    height:10rem;
 }
 
 .singal-food-card{
