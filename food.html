@@ -29,9 +29,7 @@
         <!-- side menu -->
         <div class="">
           <nav class='menu-item'>
-            <!-- <li onclick="loadFoodOption('M1')"><a href="#">主餐</a><img src="img/主餐.png"></li>
-             <li onclick="loadFoodOption('D1')"><a href="#">飲料</a><img src="img/可樂.png"></li>
-             <li onclick="loadFoodOption('A1')"><a href="#">點心</a><img src="img/蘋果派.png"></li> -->
+            <!-- food type here -->
           </nav>
         </div>
       </div> <!-- side menu -->
@@ -41,11 +39,13 @@
         <img src="img/icon.jpg" width="200" height="150" style="display:block; margin:auto;" />
         <br/>
         <div class="main-display">
-          <div class="row">
-            <div class="col-md-12 fifty side-menu scrollbar2 food-list"></div>
-          </div>
-
-          <!-- <div class="card food-detail-card">
+          <!-- <div class="row">
+            <div class="col-md-12 fifty side-menu scrollbar2 food-list"> -->
+              <!-- food list here -->
+            <!-- </div>
+          </div> -->
+          
+          <div class="card food-detail-card">
             <div class="row">
               <div class="col-3">
                 <h1>選擇產品</h1>
@@ -53,60 +53,100 @@
               <div class="col-3"></div>
               <div class="col-3"></div>
               <div class="col-3">
-                <a href="#" class="btn btn-danger" style="height:50px;width:200px;font-size:25px">取消</a>
+                <a href="#" class="btn btn-danger" style="height:50px;width:200px;font-size:25px" onclick="exit_single_food()">取消</a>
               </div>
             </div>
             <br/><br>
             <div class="row" style="height: 70%;">
               <div class="col-1"></div>
               <div class="col-10">
-                <div class="row">
-                  <div class="col-1"></div>
-                  <div class="col-5">
-                    <div class="card singal-food-card">
-                      <img src="img/大麥克.png" class="card-img-top singal-food-card-image" alt="...">
-                      <div class="card-body">
-                        <div class="row">
-                          <h5>炸蝦天婦羅安格斯黑牛堡</h5>
-                          <h5>100元</h5>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-5">
-                    <div class="card singal-food-card">
-                      <img src="img/大麥克.png" class="card-img-top singal-food-card-image" alt="...">
-                      <div class="card-body">
-                        <div class="row">
-                          <h5>炸蝦天婦羅安格斯黑牛堡套餐</h5>
-                          <h5>100元</h5>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                <div class="row" id="single-food-row">
+                  <!-- single food card here -->
                 </div>
               </div>
               <div class="col-1"></div>
-            </div> -->
+            </div>
+          </div>
 
-
-
-            <!-- <div class="row">
-              <div class="col-2"></div>
+          <div class="card" id="combo-detail-card">
+            <div class="row">
               <div class="col-2">
-                <a href="#" class="btn btn-primary" style="width:200px" onclick='location.href="payment.html"'>是</a>
+                <img class='number-icon' src='img/number-1.png'/>
+              </div>
+              <div class="col-3">
+                <img class='combo-food-img' src='img/麥香魚.png'/>
+              </div>
+              <div class="col-3">
+                <button type="button" class="btn btn-success combo-word-vertical-center">
+                  產品特製
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-2">
+                <img class='number-icon' src='img/number-2.png'/>
+              </div>
+              <div class="col-3">
+                <img class='combo-food-img' src='img/麥香魚.png'/>
+              </div>
+              <div class="col-3">
+                <button type="button" class="btn btn-success combo-word-vertical-center">
+                  變更配餐
+                </button>
+              </div>
+              <div class="col-3">
+                <button type="button" class="btn btn-success combo-word-vertical-center">
+                  產品特製
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-2">
+                <img class='number-icon' src='img/number-3.png'/>
+              </div>
+              <div class="col-3">
+                <img class='combo-food-img' src='img/麥香魚.png'/>
+              </div>
+              <div class="col-3">
+                <button type="button" class="btn btn-success combo-word-vertical-center">
+                  變更飲料
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-2">
+                <img class='number-icon' src='img/number-4.png'/>
+              </div>
+              <div class="col-3">
+                <h3 class="combo-word-vertical-center">選擇加價購產品</h3>
+              </div>
+              <div class="col-3">
+                <button type="button" class="btn btn-success combo-word-vertical-center">
+                  加價購
+                </button>
+              </div>
+            </div>
+            <br/><br/>
+            <div class="row">
+              <div class="col-2"></div>
+              <div class="col-3">
+                <button type="button" class="btn btn-success" id="word-3" onclick="changeLanguage('en')">
+                  完成
+                </button>
               </div>
               <div class="col-2"></div>
-              <div class="col-2"></div>
-              <div class="col-2">
-                <a href="#" class="btn btn-danger" style="width:200px" onclick='location.href="food.html"'>否</a>
+              <div class="col-3">
+                <button type="button" class="btn btn-danger" id="word-3" onclick="changeLanguage('en')">
+                  取消
+                </button>
               </div>
               <div class="col-2"></div>
-            </div> -->
-          <!-- </div> -->
+            </div>
+            
+          </div>
 
         </div>
-        <br /><br />
+        <br />
         <div class="row" id="shopingcart-row">
           <h1 id="word-0" onclick='location.href="shopingcart.html"'>shopping cart</h1>
         </div>

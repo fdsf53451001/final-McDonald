@@ -10,6 +10,7 @@ function update_food_type(){
 }
 
 function food_type_choose(option){
+    exit_single_food();
     loadFoodOption(option);
 }
 
@@ -33,10 +34,44 @@ function update_food_detail(){
     renderPage();
 }
 
+
 function food_choose(food_id){
     // console.log(food_id);
     loadFoodDetail(food_id);
+    
+}
+
+single_food_data = [];
+function update_single_food(){
+    $(".food-list")[0].hidden = true;
     $("#shopingcart-row")[0].hidden = true;
+    $(".food-detail-card")[0].style.display = "block";
+
+    // single_food_data=[{"id":"M00001","name":"炸蝦天婦羅安格斯黑牛堡","price":"154","img":"https:\/\/github.com\/pei-ci\/Macdonald_Pictures\/blob\/main\/McD_Menu\/Main\/Burger\/Shrimp_Angus_Beef_Burger.PNG?raw=true"},{"id":"S10001","name":"炸蝦天婦羅安格斯黑牛堡套餐","price":"269","img":"https:\/\/github.com\/pei-ci\/Macdonald_Pictures\/blob\/main\/McD_Menu\/Main\/Burger\/Shrimp_Angus_Beef_Burger.PNG?raw=true"}];
+    food_detail = '<div class="col-1"></div>';
+    for (let i = 0; i < single_food_data.length; i++) {
+        food_detail+='<div class="col-5">';
+        food_detail+='<div class="card singal-food-card">';
+        food_detail+='<img src="'+single_food_data[i]['img']+'" class="card-img-top singal-food-card-image" alt="...">';
+        food_detail+='<div class="card-body">';
+        food_detail+='<div class="row">';
+        food_detail+='<h5>'+single_food_data[i]['name']+'</h5>';
+        food_detail+='<h5>'+single_food_data[i]['price']+'元</h5>';
+        food_detail+='</div>';
+        food_detail+='</div>';
+        food_detail+='</div>';
+        food_detail+='</div>';
+        
+    }
+    // console.log(food_detail);
+    $('#single-food-row').html(food_detail);
+    //show food detail here
+}
+
+function exit_single_food(){
+    $(".food-list")[0].hidden = false;
+    $("#shopingcart-row")[0].hidden = false;
+    $(".food-detail-card")[0].style.display = "none";
 }
 
 words=['購物車','shopping cart']

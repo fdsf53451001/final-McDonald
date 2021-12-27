@@ -34,22 +34,13 @@ function loadFoodOption(option){
 }
 
 function loadFoodDetail(food_id){
-    // $.post({
-    //     url:SERVER_ADDRESS+'get_singlefood'+LANGUAGE_POSTFIX+'.php?id=\''+food_id+'\'',
-    //     },function(jsonResult){
-    //         let result = JSON.parse(jsonResult);
-    //         if(result['sucess']==='true'){
-    //             console.log(result);
-    //         }
-    //     }
-    // );
-    data=[{"id":"M00001","name":"炸蝦天婦羅安格斯黑牛堡","price":"154","img":"https:\/\/github.com\/pei-ci\/Macdonald_Pictures\/blob\/main\/McD_Menu\/Main\/Burger\/Shrimp_Angus_Beef_Burger.PNG?raw=true"},{"id":"S10001","name":"炸蝦天婦羅安格斯黑牛堡套餐","price":"269","img":"https:\/\/github.com\/pei-ci\/Macdonald_Pictures\/blob\/main\/McD_Menu\/Main\/Burger\/Shrimp_Angus_Beef_Burger.PNG?raw=true"}];
-    food_detail=[];
-    for (let i = 0; i < data.length; i++) {
-        if(data[i].avaliable==='1'){
-
+    $.post({
+        url:SERVER_ADDRESS+'get_singlefood'+LANGUAGE_POSTFIX+'.php?id=\''+food_id+'\'',
+        },function(jsonResult){
+            console.log('load food detail success');
+            single_food_data = jsonResult;
+            update_single_food();
         }
-    }
-    $('.main-display').html(food_detail);
-    //show food detail here
+    );
+    
 }

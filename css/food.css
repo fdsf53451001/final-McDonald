@@ -95,6 +95,13 @@ nav li {
 .food-detail-card{
     width: 97%;
     height: 65vh;
+    display: none;
+}
+
+#combo-detail-card{
+    width: 97%;
+    height: 65vh;
+    overflow-y: scroll;
 }
 
 .singal-food-card{
@@ -133,4 +140,24 @@ nav li {
 
 .singal-food-card{
     width:20rem;
+}
+
+#single-food-row{
+    height: 250px;
+    overflow-y: scroll;
+}
+
+.number-icon{
+    margin-top: 25px;
+    height: 100px;
+    width: 100px;
+}
+
+.combo-food-img{
+    height: 150px;
+    width: 150px;
+}
+
+.combo-word-vertical-center{
+    margin-top: 65px;
 }
