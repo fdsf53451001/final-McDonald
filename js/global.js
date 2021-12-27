@@ -1,4 +1,4 @@
-var SERVER_ADDRESS = 'http://52.170.64.214/api/';
+var SERVER_ADDRESS = 'https://macdonald.eastus.cloudapp.azure.com/api/';
 
 var LANGUAGE_OFFSET = 0;
 // 0=zh_tw, 1=en
