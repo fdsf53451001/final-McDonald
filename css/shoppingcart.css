@@ -24,3 +24,6 @@ h2{
     background-color: #088740;
     height: 35vh; 
 }
+.cen{
+    vertical-align:middle;
+}
