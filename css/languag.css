@@ -13,6 +13,11 @@
     background-size: cover;
     height: 10vh; 
 }
+.sixty{
+    background-color: #088740;
+    background-size: cover;
+    height: 65vh;
+}
 .fifteen{
     background-color: #088740;
     background-size: cover;
@@ -30,6 +35,13 @@ h2{
 .center{
     text-align:center;
     line-height:100px;
+}
+.side-menu{
+    overflow-y:auto;
+}
+.card 
+{
+    display:inline-block;
 }
 /*h1{
     color: white;

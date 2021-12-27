@@ -1,4 +1,4 @@
-words = ['內用','for here','外帶','to go','中文','chinese',"英文",'english','請選擇語言','please select language'];
+words = ['內用','for here','外帶','to go','中文','中文',"english",'english','請選擇語言','please select language'];
 function renderPage(){
     for(i=0;true;i++){
         if($('#word-'+i).length==0){break;}
