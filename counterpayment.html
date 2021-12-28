@@ -7,6 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/fastpayment.css">
     <script type="text/javascript">
       var timer=5;
@@ -23,7 +24,7 @@
            e.style.display = 'block';
         }
         if(timer==0)
-          document.location="fastpayment.html";
+          document.location="finsh.html";
       }
     </script>
     <title>Hello, world!</title>
@@ -43,11 +44,12 @@
 
   </div> 
   <div class="row text-center" >
-    <div id="timer"><h1 style="color:white">請將號碼牌放在您的桌上</h1></div>
-    <div><h1 style="color:white">餐廳會有專人提供送餐到桌</h1></div>
+    <div id="timer"><h1 style="color:white">您的訂單正在處理中.......</h1></div>
   </div>
   <div id='test' style="display:none" class="text-center">
-  <img  src="img/到桌服務.png"width="288"/>
+
+  <i class="bi bi-bag-check-fill fa-10x" style="color:white;font-size: 150px" ></i>
+  <div id="timer"><h1 style="color:white">請至櫃台結帳</h1></div>
 </div>
   <!-- Optional JavaScript; choose one of the two! -->
 
