@@ -44,3 +44,62 @@ function loadFoodDetail(food_id){
     );
     
 }
+
+combo_side_data = [{"FoodID":"S20001","name":"麥克雞塊(4)+中薯(-$15)","price":"-15","img":"https:\/\/github.com\/pei-ci\/Macdonald_Pictures\/blob\/main\/side_meal_ok\/%E9%9B%9E%E5%A1%8A+%E8%96%AF%E6%A2%9D.png?raw=true","sub_id_list":[["雞塊","A00015"],["薯條","A00009"]]},{"FoodID":"S20002","name":"麥脆雞腿(原)+中薯","price":"0","img":"https:\/\/github.com\/pei-ci\/Macdonald_Pictures\/blob\/main\/side_meal_ok\/%E9%9B%9E%E8%85%BF+%E8%96%AF%E6%A2%9D.png?raw=true","sub_id_list":[["原味雞腿","M00013"],["薯條","A00009"]]},{"FoodID":"S20003","name":"麥脆雞腿(辣)+中薯","price":"0","img":"https:\/\/github.com\/pei-ci\/Macdonald_Pictures\/blob\/main\/side_meal_ok\/%E9%9B%9E%E8%85%BF+%E8%96%AF%E6%A2%9D.png?raw=true","sub_id_list":[["辣味雞腿","M00014"],["薯條","A00009"]]},{"FoodID":"S20004","name":"經典中薯(-$60)","price":"-60","img":"https:\/\/github.com\/pei-ci\/Macdonald_Pictures\/blob\/main\/side_meal_ok\/%E4%B8%AD%E8%96%AF.png?raw=true","sub_id_list":[["薯條","A00009"]]},{"FoodID":"S20005","name":"經典大薯(-$47)","price":"-47","img":"https:\/\/github.com\/pei-ci\/Macdonald_Pictures\/blob\/main\/side_meal_ok\/%E5%A4%A7%E8%96%AF.png?raw=true","sub_id_list":[["薯條","A00010"]]},{"FoodID":"S20006","name":"清爽沙拉(-$60)","price":"-60","img":"https:\/\/github.com\/pei-ci\/Macdonald_Pictures\/blob\/main\/side_meal_ok\/%E6%B2%99%E6%8B%89.png?raw=true","sub_id_list":[["沙拉","S20006"]]},{"FoodID":"S20007","name":"麥克雞塊(-$53)","price":"-53","img":"https:\/\/github.com\/pei-ci\/Macdonald_Pictures\/blob\/main\/side_meal_ok\/%E9%9B%9E%E5%A1%8A.png?raw=true","sub_id_list":[["雞塊","A00015"]]}];
+function loadComboSides(){
+    $.post({
+        url:SERVER_ADDRESS+'combo_side'+LANGUAGE_POSTFIX+'.php',
+        },function(jsonResult){
+            console.log('load combo side success');
+            combo_side_data = jsonResult;
+        }
+    );
+}
+
+combo_side_custom_data = [{"id":"A002","name":"沾醬","type":"0","typeName":"integer","defaultNum":"1","option":["蜂蜜芥末醬包","泰式香辣醬包","糖醋醬包","不要醬包"]}];
+function loadComboSidesCustom(food_id){
+    console.log(food_id);
+    $.post({
+        url:SERVER_ADDRESS+'get_customer'+LANGUAGE_POSTFIX+'.php?id=\''+food_id+'\'',
+        },function(jsonResult){
+            console.log('load combo side success');
+            combo_side_custom_data = jsonResult;
+            update_combo_side_custom();
+        }
+    );
+}
+
+combo_drink_data = [];
+function loadComboDrinks(){
+    $.post({
+        url:SERVER_ADDRESS+'combo_drink'+LANGUAGE_POSTFIX+'.php',
+        },function(jsonResult){
+            console.log('load combo drink success');
+            combo_drink_data = jsonResult;
+        }
+    );
+}
+
+combo_adds_data = [];
+function loadComboAdds(){
+    $.post({
+        url:SERVER_ADDRESS+'combo_add'+LANGUAGE_POSTFIX+'.php',
+        },function(jsonResult){
+            console.log('load combo adds success');
+            combo_adds_data = jsonResult;
+        }
+    );
+}
+
+main_food_custom_data = [];
+function loadMainFoodCustom(food_id){
+    $.post({
+        url:SERVER_ADDRESS+'get_customer'+LANGUAGE_POSTFIX+'.php?id=\''+food_id+'\'',
+        },function(jsonResult){
+            console.log('load food custom success');
+            main_food_custom_data = jsonResult;
+            update_main_food_custom();
+        }
+    );
+}
+

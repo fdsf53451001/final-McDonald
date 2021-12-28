@@ -38,7 +38,6 @@ function update_food_detail(){
 function food_choose(food_id){
     // console.log(food_id);
     loadFoodDetail(food_id);
-    
 }
 
 single_food_data = [];
@@ -51,7 +50,7 @@ function update_single_food(){
     food_detail = '<div class="col-1"></div>';
     for (let i = 0; i < single_food_data.length; i++) {
         food_detail+='<div class="col-5">';
-        food_detail+='<div class="card singal-food-card">';
+        food_detail+='<div class="card singal-food-card" onclick="single_food_choose(\''+single_food_data[i]['id']+'\',\''+single_food_data[i]['name']+'\',\''+single_food_data[i]['price']+'\',\''+single_food_data[0]['id']+'\',\''+single_food_data[0]['name']+'\',\''+single_food_data[i]['img']+'\')" >';
         food_detail+='<img src="'+single_food_data[i]['img']+'" class="card-img-top singal-food-card-image" alt="...">';
         food_detail+='<div class="card-body">';
         food_detail+='<div class="row">';
@@ -72,6 +71,161 @@ function exit_single_food(){
     $(".food-list")[0].hidden = false;
     $("#shopingcart-row")[0].hidden = false;
     $(".food-detail-card")[0].style.display = "none";
+    $("#combo-detail-card")[0].style.display = "none";
+}
+
+function save_current_food_set(){
+    order_food = localStorage.getItem('order_food');
+    data = JSON.parse(order_food);
+    data.push(current_food_set);
+    order_food = JSON.stringify(data);
+    localStorage.setItem('order_food',order_food);
+    exit_single_food();
+}
+
+// save current food set
+current_food_set = {};
+function single_food_choose(id,combo_name,default_price,single_id,single_name,img){
+    current_food_set = {combo:0,default_price:-1,price:-1,count:1,combo_id:-1,combo_name:'',food_list:[{food_id:-1,food_name:'',custom:[]},{food_id:-1,food_name:'',custom:[]},{food_id:-1,food_name:'',custom:[]}],addon_list:[{food_id:-1,food_name:'無加價購',custom:[]}]};
+    $('#combo-food-img1').attr('src',img);
+    if(id[0]==='S'){    //combo here
+        $(".food-list")[0].hidden = true;
+        $(".food-detail-card")[0].style.display = "none";
+        $("#combo-detail-card")[0].style.display = "block";
+        $("#combo-food-options")[0].style.display = "block";
+        loadMainFoodCustom(single_id);
+        update_combo_side_data();
+        update_combo_drink_data();
+        update_combo_addon_data();
+
+        current_food_set['combo'] = 1;
+        current_food_set['combo_id'] = id;
+        current_food_set['combo_name'] = combo_name;
+        current_food_set['food_list'][0]['food_id'] = single_id;
+        current_food_set['food_list'][0]['food_name'] = single_name;
+        current_food_set['default_price'] = parseInt(default_price);
+        current_food_set['price'] = parseInt(default_price);
+    }else{  //single here
+        $(".food-list")[0].hidden = true;
+        $(".food-detail-card")[0].style.display = "none";
+        $("#combo-detail-card")[0].style.display = "block";
+        $("#combo-food-options")[0].style.display = "none";
+
+        current_food_set['combo'] = 0;
+        current_food_set['combo_id'] = id;
+        current_food_set['combo_name'] = combo_name;
+        current_food_set['food_list'][0]['food_id'] = single_id;
+        current_food_set['food_list'][0]['food_name'] = single_name;
+        current_food_set['default_price'] = parseInt(default_price);
+        current_food_set['price'] = parseInt(default_price);
+    }
+}
+
+function update_main_food_custom(){
+    food_custom = '';
+    for(i=0;i<main_food_custom_data.length;i++){
+        food_custom += '<div class="card" style="width: 18rem;">';
+        food_custom += '<img class="card-img-top" src="img/主餐.png" alt="Card image cap" width="140" height="220">';
+        food_custom += '<div class="card-body">';
+        food_custom += '<h5 class="card-title">'+main_food_custom_data[i]['name']+'</h5>';
+        for(j=0;j<main_food_custom_data[i]['option'].length;j++){
+            food_custom += '<a href="#" class="btn btn-primary" style="margin-left:5px" onclick="combo_food_custom(0,\''+main_food_custom_data[i]['id']+'\',\''+main_food_custom_data[i]['option'][j]+'\')">'+main_food_custom_data[i]['option'][j]+'</a>';
+        }
+        food_custom += '</div>';
+        food_custom += '</div>';
+    }
+    $('#hide_cust_main').html(food_custom);
+}
+
+function combo_food_custom(food_no,custom_id,value){
+    for(i=0;i<current_food_set['food_list'][food_no]['custom'].length;i++){
+        if(current_food_set['food_list'][food_no]['custom'][i]['id']===custom_id){
+            current_food_set['food_list'][food_no]['custom'][i]['value'] = value;
+            return;
+        }
+    }
+    current_food_set['food_list'][food_no]['custom'].push({id:custom_id,value:value});
+}
+
+function update_combo_side_data(){
+    combo_side = '';
+    for(i=0;i<combo_side_data.length;i++){
+        combo_side += '<div class="card" style="width: 18rem;">';
+        combo_side += '<img class="card-img-top" src="'+combo_side_data[i]['img']+'" alt="Card image cap" width="140" height="220">';
+        combo_side += '<div class="card-body">';
+        combo_side += '<h5 class="card-title">'+combo_side_data[i]['name']+'</h5>';
+        combo_side += '<a href="#" class="btn btn-primary" onclick="side_food_select(\''+combo_side_data[i]['FoodID']+'\',\''+combo_side_data[i]['sub_id_list'][0][1]+'\',\''+combo_side_data[i]['name']+'\',\''+combo_side_data[i]['price']+'\',\''+combo_side_data[i]['img']+'\')">選擇</a>';
+        combo_side += '</div>';
+        combo_side += '</div>';
+    }
+    $('#hide_side').html(combo_side);
+    side_food_select(combo_side_data[0]['FoodID'],combo_side_data[0]['sub_id_list'][0][1],combo_side_data[0]['name'],combo_side_data[0]['price'],combo_side_data[0]['img']);
+}
+
+function side_food_select(food_id,single_side_id,food_name,price,img){
+    current_food_set['food_list'][1]['food_id'] = food_id;
+    current_food_set['food_list'][1]['food_name'] = food_name;
+    current_food_set['price'] = parseInt(current_food_set['price']) + parseInt(price);
+    $('#combo-food-img2').attr('src',img);
+    loadComboSidesCustom(single_side_id);
+}
+
+function update_combo_side_custom(){
+    food_custom = '';
+    for(i=0;i<combo_side_custom_data.length;i++){
+        food_custom += '<div class="card" style="width: 18rem;">';
+        food_custom += '<img class="card-img-top" src="img/主餐.png" alt="Card image cap" width="140" height="220">';
+        food_custom += '<div class="card-body">';
+        food_custom += '<h5 class="card-title">'+combo_side_custom_data[i]['name']+'</h5>';
+        for(j=0;j<combo_side_custom_data[i]['option'].length;j++){
+            food_custom += '<a href="#" class="btn btn-primary" style="margin-left:5px" onclick="combo_food_custom(1,\''+combo_side_custom_data[i]['id']+'\',\''+combo_side_custom_data[i]['option'][j]+'\')">'+combo_side_custom_data[i]['option'][j]+'</a>';
+        }
+        food_custom += '</div>';
+        food_custom += '</div>';
+    }
+    $('#hide_cust_side').html(food_custom);
+}
+
+function update_combo_drink_data(){
+    combo_drink = '';
+    for(i=0;i<combo_drink_data.length;i++){
+        combo_drink += '<div class="card" style="width: 18rem;">';
+        combo_drink += '<img class="card-img-top" src="'+combo_drink_data[i]['img']+'" alt="Card image cap" width="140" height="220">';
+        combo_drink += '<div class="card-body">';
+        combo_drink += '<h5 class="card-title">'+combo_drink_data[i]['name']+'</h5>';
+        combo_drink += '<a href="#" class="btn btn-primary" onclick="combo_drink_select(\''+combo_drink_data[i]['FoodID']+'\',\''+combo_drink_data[i]['name']+'\',\''+combo_drink_data[i]['price']+'\',\''+combo_drink_data[i]['img']+'\')">選擇</a>';
+        combo_drink += '</div>';
+        combo_drink += '</div>';
+    }
+    $('#hide_drink').html(combo_drink);
+    combo_drink_select(combo_drink_data[0]['FoodID'],combo_drink_data[0]['name'],combo_drink_data[0]['price'],combo_drink_data[0]['img']);
+}
+
+function combo_drink_select(food_id,food_name,price,img){
+    current_food_set['food_list'][2]['food_id'] = food_id;
+    current_food_set['food_list'][2]['food_name'] = food_name;
+    current_food_set['price'] = parseInt(current_food_set['price']) + parseInt(price);
+    $('#combo-food-img3').attr('src',img);
+}
+
+function update_combo_addon_data(){
+    combo_addon = '';
+    for(i=0;i<combo_adds_data.length;i++){
+        combo_addon += '<div class="card" style="width: 18rem;">';
+        combo_addon += '<img class="card-img-top" src="'+combo_adds_data[i]['img']+'" alt="Card image cap" width="140" height="220">';
+        combo_addon += '<div class="card-body">';
+        combo_addon += '<h5 class="card-title">'+combo_adds_data[i]['name']+'</h5>';
+        combo_addon += '<a href="#" class="btn btn-primary" onclick="combo_addon_select(\''+combo_adds_data[i]['FoodID']+'\',\''+combo_adds_data[i]['name']+'\',\''+combo_adds_data[i]['price']+'\')">選擇</a>';
+        combo_addon += '</div>';
+        combo_addon += '</div>';
+    }
+    $('#hide_addition').html(combo_addon);
+}
+
+function combo_addon_select(food_id,food_name,price){
+    current_food_set['addon_list'][0]['food_id'] = food_id;
+    current_food_set['addon_list'][0]['food_name'] = food_name;
+    current_food_set['price'] = parseInt(current_food_set['price']) + parseInt(price);
 }
 
 words=['購物車','shopping cart']
@@ -93,3 +247,7 @@ loadFoodType();
 loadFoodOption('M1');
 
 renderPage();
+
+loadComboSides();
+loadComboDrinks();
+loadComboAdds();

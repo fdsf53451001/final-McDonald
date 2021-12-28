@@ -12,7 +12,7 @@ body{
 }
 .fifty{
     background-size: cover;
-    height: 50vh; 
+    height: 57vh; 
 }
 .ten{
     background-color: #088740;
@@ -40,6 +40,11 @@ h2{
     text-align:center;
     color: white;   
 }
+
+h5{
+    font-size: 17px;
+}
+
 .center{
     text-align:center;
     line-height:100px;
@@ -102,13 +107,8 @@ nav li {
     width: 97%;
     height: 65vh;
     overflow-y: scroll;
+    display: none;
 }
-
-.singal-food-card{
-    width: 200px;
-    height: 230px;
-}
-
 .singal-food-card-image{
     width: 150px;
     height: 150px;
@@ -139,7 +139,10 @@ nav li {
 }
 
 .singal-food-card{
+    width: 200px;
+    height: 330px;
     width:20rem;
+    margin-top:20px;
 }
 
 #single-food-row{

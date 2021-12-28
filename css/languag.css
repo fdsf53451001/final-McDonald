@@ -1,25 +1,24 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css");
-.twenty-five{
+body{
     background-color: #088740;
+}
+
+.twenty-five{
     height: 25vh; 
 }
 .fifty{
-    background-color: #088740;
     background-size: cover;
     height: 50vh; 
 }
 .ten{
-    background-color: #088740;
     background-size: cover;
     height: 10vh; 
 }
 .sixty{
-    background-color: #088740;
     background-size: cover;
     height: 65vh;
 }
 .fifteen{
-    background-color: #088740;
     background-size: cover;
     height: 15vh; 
 }
