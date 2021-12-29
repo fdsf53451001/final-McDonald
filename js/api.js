@@ -118,18 +118,6 @@ function loadMainFoodCustom(food_id){
 }
 
 function send_add_single_food(food_id,count){
-    $.post({
-        url:SERVER_ADDRESS+'add_single_order.php?SFID="'+food_id+'"&OID="'+localStorage.getItem('order_id')+'"&count="'+count+'"',
-        },function(jsonResult){
-            if(jsonResult.length>0){
-                console.log('add single food success');
-                return jsonResult[0]['NO'];
-            }
-        }
-    );
-}
-
-function send_add_single_food(food_id,count){
     $.ajax({
         url: SERVER_ADDRESS+'add_single_order.php',
         type: 'GET',
@@ -148,6 +136,12 @@ function send_add_single_food(food_id,count){
 }
 
 function send_add_combo_food(main_id,side_id,drink_id,count){
+    console.log(jQuery.param({OID: '"'+localStorage.getItem('order_id')+'"',
+    MainID:'"'+main_id+'"',
+    SideID:'"'+side_id+'"',
+    DrinkID:'"'+drink_id+'"',
+    count:'"'+count+'"'}
+    ));
     $.ajax({
         url: SERVER_ADDRESS+'add_combo_order.php',
         type: 'GET',
@@ -210,6 +204,7 @@ function send_food_custom(no,CUID,value){
     }); 
 }
 
+order_info=[];
 function load_order_info(){
     $.ajax({
         url: SERVER_ADDRESS+'get_order_info.php',
@@ -217,6 +212,8 @@ function load_order_info(){
         data: jQuery.param({OID: '"'+localStorage.getItem('order_id')+'"'}),
         success: function (response) {
             console.log(response);
+            order_info = response;
+            update_order_info();
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
             alert(XMLHttpRequest.status);

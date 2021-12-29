@@ -48,6 +48,11 @@ function update_shopingcart(){
             shopingcart_data += '</div>';
         }
     }
+    shopingcart_data += '<div class="row">';
+    shopingcart_data += '<div class="card text-center">';
+    shopingcart_data += '<div class="card-header">';
+    shopingcart_data += '總價<span id="total-price"> $'+get_total_price()+'元</span>';
+    shopingcart_data += '</div>';
     $('#food-list').html(shopingcart_data);
 }
 
@@ -77,6 +82,14 @@ function save_food_count(){
     save_order_food();
     load_order_food();
     update_shopingcart();
+}
+
+function get_total_price(){
+    total_price = 0;
+    for(i=0;i<order_food.length;i++){
+        total_price += order_food[i]['price']*order_food[i]['count'];
+    }
+    return total_price;
 }
 
 load_order_food();
