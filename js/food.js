@@ -86,7 +86,7 @@ function save_current_food_set(){
 // save current food set
 current_food_set = {};
 function single_food_choose(id,combo_name,default_price,single_id,single_name,img){
-    current_food_set = {combo:0,default_price:-1,price:-1,count:1,combo_id:-1,combo_name:'',food_list:[{food_id:-1,food_name:'',custom:[]},{food_id:-1,food_name:'',custom:[]},{food_id:-1,food_name:'',custom:[]}],addon_list:[{food_id:-1,food_name:'無加價購',custom:[]}]};
+    current_food_set = {combo:0,default_price:0,price:0,count:1,combo_id:-1,combo_name:'',food_list:[{food_id:-1,food_name:'',custom:[],price:0},{food_id:-1,food_name:'',custom:[],price:0},{food_id:-1,food_name:'',custom:[],price:0}],addon_list:[{food_id:-1,food_name:'無加價購',custom:[],price:0}]};
     $('#combo-food-img1').attr('src',img);
     if(id[0]==='S'){    //combo here
         $(".food-list")[0].hidden = true;
@@ -103,6 +103,7 @@ function single_food_choose(id,combo_name,default_price,single_id,single_name,im
         current_food_set['combo_name'] = combo_name;
         current_food_set['food_list'][0]['food_id'] = single_id;
         current_food_set['food_list'][0]['food_name'] = single_name;
+        current_food_set['food_list'][0]['price'] = default_price;
         current_food_set['default_price'] = parseInt(default_price);
         current_food_set['price'] = parseInt(default_price);
     }else{  //single here
@@ -116,6 +117,7 @@ function single_food_choose(id,combo_name,default_price,single_id,single_name,im
         current_food_set['combo_name'] = combo_name;
         current_food_set['food_list'][0]['food_id'] = single_id;
         current_food_set['food_list'][0]['food_name'] = single_name;
+        current_food_set['food_list'][0]['price'] = default_price;
         current_food_set['default_price'] = parseInt(default_price);
         current_food_set['price'] = parseInt(default_price);
     }
@@ -165,6 +167,8 @@ function update_combo_side_data(){
 function side_food_select(food_id,single_side_id,food_name,price,img){
     current_food_set['food_list'][1]['food_id'] = food_id;
     current_food_set['food_list'][1]['food_name'] = food_name;
+    current_food_set['food_list'][1]['price'] = price;
+    // console.log(current_food_set['price'],parseInt(price));
     current_food_set['price'] = parseInt(current_food_set['price']) + parseInt(price);
     $('#combo-food-img2').attr('src',img);
     loadComboSidesCustom(single_side_id);
@@ -204,6 +208,7 @@ function update_combo_drink_data(){
 function combo_drink_select(food_id,food_name,price,img){
     current_food_set['food_list'][2]['food_id'] = food_id;
     current_food_set['food_list'][2]['food_name'] = food_name;
+    current_food_set['food_list'][2]['price'] = price;
     current_food_set['price'] = parseInt(current_food_set['price']) + parseInt(price);
     $('#combo-food-img3').attr('src',img);
 }
@@ -225,6 +230,7 @@ function update_combo_addon_data(){
 function combo_addon_select(food_id,food_name,price){
     current_food_set['addon_list'][0]['food_id'] = food_id;
     current_food_set['addon_list'][0]['food_name'] = food_name;
+    current_food_set['addon_list'][0]['price'] = price;
     current_food_set['price'] = parseInt(current_food_set['price']) + parseInt(price);
 }
 

@@ -9,6 +9,7 @@ function save_order_food(){
 }
 
 function update_shopingcart(){
+    check_price();
     shopingcart_data='';
     for(i=0;i<order_food.length;i++){
         if(order_food[i]['combo']==1){  //combo
@@ -84,7 +85,25 @@ function save_food_count(){
     update_shopingcart();
 }
 
+function check_price(){
+    for(i=0;i<order_food.length;i++){
+        if(order_food[i]['combo']==1){
+            order_food[i]['price'] = 0;
+            order_food[i]['price'] += parseInt(order_food[i]['food_list'][0]['price']);
+            order_food[i]['price'] += parseInt(order_food[i]['food_list'][1]['price']);
+            order_food[i]['price'] += parseInt(order_food[i]['food_list'][2]['price']);
+            // console.log(parseInt(order_food[i]['food_list'][0]['price']),parseInt(order_food[i]['food_list'][1]['price']),parseInt(order_food[i]['food_list'][2]['price']));
+            order_food[i]['price'] += parseInt(order_food[i]['addon_list'][0]['price']);
+            
+        }else{
+            order_food[i]['price'] = 0;
+            order_food[i]['price'] += parseInt(order_food[i]['food_list'][0]['price']);
+        }
+    }
+}
+
 function get_total_price(){
+    check_price();
     total_price = 0;
     for(i=0;i<order_food.length;i++){
         total_price += order_food[i]['price']*order_food[i]['count'];
