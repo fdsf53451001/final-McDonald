@@ -228,7 +228,7 @@ function combo_addon_select(food_id,food_name,price){
     current_food_set['price'] = parseInt(current_food_set['price']) + parseInt(price);
 }
 
-words=['購物車','shopping cart']
+words=['<i class="bi bi-cart-plus-fill" style="color:whites"></i>購物車','<i class="bi bi-cart-plus-fill" style="color:whites"></i>shopping cart']
 words_group = ['選擇','choose']
 function renderPage(){
     for(i=0;true;i++){
