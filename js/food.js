@@ -86,7 +86,7 @@ function save_current_food_set(){
 // save current food set
 current_food_set = {};
 function single_food_choose(id,combo_name,default_price,single_id,single_name,img){
-    current_food_set = {combo:0,default_price:0,price:0,count:1,combo_id:-1,combo_name:'',food_list:[{food_id:-1,food_name:'',custom:[],price:0},{food_id:-1,food_name:'',custom:[],price:0},{food_id:-1,food_name:'',custom:[],price:0}],addon_list:[{food_id:-1,food_name:'無加價購',custom:[],price:0}]};
+    current_food_set = {combo:0,default_price:0,price:0,count:1,combo_id:-1,combo_name:'',food_list:[{food_id:-1,food_name:'',custom:[],custom_name:[],price:0},{food_id:-1,food_name:'',custom:[],custom_name:[],price:0},{food_id:-1,food_name:'',custom:[],custom_name:[],price:0}],addon_list:[{food_id:-1,food_name:'無加價購',custom:[],custom_name:[],price:0}]};
     $('#combo-food-img1').attr('src',img);
     if(id[0]==='S'){    //combo here
         $(".food-list")[0].hidden = true;
@@ -131,7 +131,7 @@ function update_main_food_custom(){
         food_custom += '<div class="card-body">';
         food_custom += '<h5 class="card-title">'+main_food_custom_data[i]['name']+'</h5>';
         for(j=0;j<main_food_custom_data[i]['option'].length;j++){
-            food_custom += '<a href="#" class="btn btn-primary" style="margin-left:5px" onclick="combo_food_custom(0,\''+main_food_custom_data[i]['id']+'\',\''+main_food_custom_data[i]['option'][j]+'\')">'+main_food_custom_data[i]['option'][j]+'</a>';
+            food_custom += '<a href="#" class="btn btn-primary" style="margin-left:5px" onclick="combo_food_custom(0,\''+main_food_custom_data[i]['id']+'\',\''+main_food_custom_data[i]['name']+'\',\''+main_food_custom_data[i]['option'][j]+'\')">'+main_food_custom_data[i]['option'][j]+'</a>';
         }
         food_custom += '</div>';
         food_custom += '</div>';
@@ -139,7 +139,7 @@ function update_main_food_custom(){
     $('#hide_cust_main').html(food_custom);
 }
 
-function combo_food_custom(food_no,custom_id,value){
+function combo_food_custom(food_no,custom_id,custom_name,value){
     for(i=0;i<current_food_set['food_list'][food_no]['custom'].length;i++){
         if(current_food_set['food_list'][food_no]['custom'][i]['id']===custom_id){
             current_food_set['food_list'][food_no]['custom'][i]['value'] = value;
@@ -147,6 +147,14 @@ function combo_food_custom(food_no,custom_id,value){
         }
     }
     current_food_set['food_list'][food_no]['custom'].push({id:custom_id,value:value});
+
+    for(i=0;i<current_food_set['food_list'][food_no]['custom_name'].length;i++){
+        if(current_food_set['food_list'][food_no]['custom_name'][i]['id']===custom_name){
+            current_food_set['food_list'][food_no]['custom_name'][i]['value'] = value;
+            return;
+        }
+    }
+    current_food_set['food_list'][food_no]['custom_name'].push({id:custom_name,value:value});
 }
 
 function update_combo_side_data(){
@@ -182,7 +190,7 @@ function update_combo_side_custom(){
         food_custom += '<div class="card-body">';
         food_custom += '<h5 class="card-title">'+combo_side_custom_data[i]['name']+'</h5>';
         for(j=0;j<combo_side_custom_data[i]['option'].length;j++){
-            food_custom += '<a href="#" class="btn btn-primary" style="margin-left:5px" onclick="combo_food_custom(1,\''+combo_side_custom_data[i]['id']+'\',\''+combo_side_custom_data[i]['option'][j]+'\')">'+combo_side_custom_data[i]['option'][j]+'</a>';
+            food_custom += '<a href="#" class="btn btn-primary" style="margin-left:5px" onclick="combo_food_custom(1,\''+combo_side_custom_data[i]['id']+'\',\''+combo_side_custom_data[i]['name']+'\',\''+combo_side_custom_data[i]['option'][j]+'\')">'+combo_side_custom_data[i]['option'][j]+'</a>';
         }
         food_custom += '</div>';
         food_custom += '</div>';

@@ -11,7 +11,7 @@ function save_order_food(){
 function update_shopingcart(){
     check_price();
     shopingcart_data='';
-    for(i=0;i<order_food.length;i++){
+    for(let i=0;i<order_food.length;i++){
         if(order_food[i]['combo']==1){  //combo
             shopingcart_data += '<div class="row">';
             shopingcart_data += '<div class="card text-center">';
@@ -19,10 +19,10 @@ function update_shopingcart(){
             shopingcart_data += order_food[i]['combo_name']+'<span> $'+order_food[i]['price']+' x'+order_food[i]['count']+'</span>';
             shopingcart_data += '</div>';
             shopingcart_data += '<div class="card-body">';
-            shopingcart_data += '<p class="card-text">'+order_food[i]['food_list'][0]['food_name']+'</p>';
-            shopingcart_data += '<p class="card-text">'+order_food[i]['food_list'][1]['food_name']+'</p>';
-            shopingcart_data += '<p class="card-text">'+order_food[i]['food_list'][2]['food_name']+'</p>';
-            shopingcart_data += '<p class="card-text">'+order_food[i]['addon_list'][0]['food_name']+'</p>';
+            shopingcart_data += '<p class="card-text">'+order_food[i]['food_list'][0]['food_name']+' '+show_custom(order_food[i]['food_list'][0]['custom_name'])+'</p>';
+            shopingcart_data += '<p class="card-text">'+order_food[i]['food_list'][1]['food_name']+' '+show_custom(order_food[i]['food_list'][1]['custom_name'])+'</p>';
+            shopingcart_data += '<p class="card-text">'+order_food[i]['food_list'][2]['food_name']+' '+show_custom(order_food[i]['food_list'][2]['custom_name'])+'</p>';
+            shopingcart_data += '<p class="card-text">'+order_food[i]['addon_list'][0]['food_name']+' '+show_custom(order_food[i]['addon_list'][0]['custom_name'])+'</p>';
             shopingcart_data += '<a class="btn btn-primary" style="width:100px" onclick="save_food_count()">確認</a>';
             shopingcart_data += '<button class="btn btn-outline-success" onclick="change_food_count(\''+i+'\',\'1\')"><i class="bi bi-plus-circle"></i></button>';
             shopingcart_data += '<span id="food-count-'+i+'">'+order_food[i]['count']+'</span>';
@@ -55,6 +55,17 @@ function update_shopingcart(){
     shopingcart_data += '總價<span id="total-price"> $'+get_total_price()+'元</span>';
     shopingcart_data += '</div>';
     $('#food-list').html(shopingcart_data);
+}
+
+function show_custom(custom){
+    // console.log(custom.length)
+    custom_string = '';
+    for(let j=0;j<custom.length;j++){
+        custom_string += custom[j]['id'];
+        custom_string += ":";
+        custom_string += custom[j]['value'];
+    }
+    return custom_string;
 }
 
 function change_food_count(number,edit_count){
