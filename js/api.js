@@ -1,3 +1,17 @@
+function send_generate_order(table,where_use){
+    $.post({
+        url:SERVER_ADDRESS+'generate_order_id.php?table="'+table+'"&type="'+where_use+'"',
+        },function(jsonResult){
+            console.log('send gen order success');
+            // console.log(jsonResult);
+            if(jsonResult.length!=0){
+                localStorage.setItem('order_id',jsonResult[0]['id']);
+                on_orderid_generated();
+            }
+        }
+    );
+}
+
 function loadFoodType(){
     $.post({
         url:SERVER_ADDRESS+'foodtype'+LANGUAGE_POSTFIX+'.php',
@@ -103,3 +117,111 @@ function loadMainFoodCustom(food_id){
     );
 }
 
+function send_add_single_food(food_id,count){
+    $.post({
+        url:SERVER_ADDRESS+'add_single_order.php?SFID="'+food_id+'"&OID="'+localStorage.getItem('order_id')+'"&count="'+count+'"',
+        },function(jsonResult){
+            if(jsonResult.length>0){
+                console.log('add single food success');
+                return jsonResult[0]['NO'];
+            }
+        }
+    );
+}
+
+function send_add_single_food(food_id,count){
+    $.ajax({
+        url: SERVER_ADDRESS+'add_single_order.php',
+        type: 'GET',
+        data: jQuery.param({OID: '"'+localStorage.getItem('order_id')+'"',
+                            SFID:'"'+food_id+'"',
+                            count:'"'+count+'"'}
+                            ),
+        success: function (response) {
+            console.log('add single food success');
+            return response[0]['NO'];
+        },
+        error: function () {
+            console.log("error");
+        }
+    }); 
+}
+
+function send_add_combo_food(main_id,side_id,drink_id,count){
+    $.ajax({
+        url: SERVER_ADDRESS+'add_combo_order.php',
+        type: 'GET',
+        data: jQuery.param({OID: '"'+localStorage.getItem('order_id')+'"',
+                            MainID:'"'+main_id+'"',
+                            SideID:'"'+side_id+'"',
+                            DrinkID:'"'+drink_id+'"',
+                            count:'"'+count+'"'}
+                            ),
+        success: function (response) {
+            no_list=[];
+            if(response.length>0){
+                for(i=0;i<response.length;i++){
+                    no_list.push(response[i]['NO']);
+                }
+            }
+            console.log('add combo food success');
+            return no_list;
+            //不能用return 重新設計儲存NO的資料結構
+        },
+        error: function () {
+            console.log("error");
+        }
+    }); 
+}
+
+
+function send_combo_addon(food_id,count){
+    $.ajax({
+        url: SERVER_ADDRESS+'add_single_order.php',
+        type: 'GET',
+        data: jQuery.param({OID: '"'+localStorage.getItem('order_id')+'"',
+                            SFID:'"'+food_id+'"',
+                            count:'"'+count+'"'}
+                            ),
+        success: function (response) {
+            console.log('add addon food success');
+            return response[0]['NO'];
+        },
+        error: function () {
+            console.log("error");
+        }
+    }); 
+}
+
+function send_food_custom(no,CUID,value){
+    $.ajax({
+        url: SERVER_ADDRESS+'add_single_order.php',
+        type: 'GET',
+        data: jQuery.param({NO: '"'+no+'"',
+                            CUID:'"'+CUID+'"',
+                            set_num:'"'+value+'"'}
+                            ),
+        success: function (response) {
+            console.log('add food custom success');
+        },
+        error: function () {
+            console.log("error");
+        }
+    }); 
+}
+
+function load_order_info(){
+    $.ajax({
+        url: SERVER_ADDRESS+'get_order_info.php',
+        type: 'GET',
+        data: jQuery.param({OID: '"'+localStorage.getItem('order_id')+'"'}),
+        success: function (response) {
+            console.log(response);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            alert(XMLHttpRequest.status);
+            alert(XMLHttpRequest.readyState);
+            alert(textStatus);
+        }
+    }); 
+}
