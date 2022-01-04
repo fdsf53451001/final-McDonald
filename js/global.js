@@ -19,6 +19,17 @@ function setLanguage(lan){
         LANGUAGE_POSTFIX = '_en';
     }
 }
-
 setLanguage(localStorage.getItem('language'));
+
+// word data save in own js file
+function renderPage(){
+    for(i=0;true;i++){
+        if($('#word-'+i).length==0){break;}
+        $('#word-'+i).html(words[i*2+LANGUAGE_OFFSET]);
+    }
+    for(i=0;true;i++){
+        if($('.word-group-'+i).length==0){break;}
+        $('.word-group-'+i).html(words_group[i*2+LANGUAGE_OFFSET]);
+    }
+}
 

@@ -53,7 +53,7 @@
               <div class="col-3"></div>
               <div class="col-3"></div>
               <div class="col-3">
-                <a href="#" class="btn btn-danger" style="height:50px;width:200px;font-size:25px"
+                <a href="#" class="btn btn-danger word-group-4" style="height:50px;width:200px;font-size:25px"
                   onclick="exit_single_food()">取消</a>
               </div>
             </div>
@@ -78,7 +78,7 @@
                 <img class='combo-food-img' id='combo-food-img1' src='img/麥香魚.png' />
               </div>
               <div class="col-3">
-                <button type="button" class="btn btn-success combo-word-vertical-center"
+                <button type="button" class="btn btn-success combo-word-vertical-center word-group-1"
                   onclick="toggle_visibility('hide_cust_main')">
                   產品特製
                 </button>
@@ -96,13 +96,13 @@
                   <img class='combo-food-img' id='combo-food-img2' src='img/麥香魚.png' />
                 </div>
                 <div class="col-3">
-                  <button type="button" class="btn btn-success combo-word-vertical-center"
+                  <button type="button" class="btn btn-success combo-word-vertical-center word-group-2"
                     onclick="toggle_visibility('hide_side')">
                     變更配餐
                   </button>
                 </div>
                 <div class="col-3">
-                  <button type="button" class="btn btn-success combo-word-vertical-center"
+                  <button type="button" class="btn btn-success combo-word-vertical-center word-group-1"
                     onclick="toggle_visibility('hide_cust_side')">
                     產品特製
                   </button>
@@ -118,15 +118,7 @@
                     <h5 class="card-title">客製化內容</h5>
                     <a href="#" class="btn btn-primary" onclick="toggle_visibility('hide_cust_side')">選擇</a>
                   </div>
-                </div>
-
-                <div class="card" style="width: 18rem;">
-                  <img class="card-img-top" src="img/主餐.png" alt="Card image cap" width="140" height="220">
-                  <div class="card-body">
-                    <h5 class="card-title">客製化內容</h5>
-                    <a href="#" class="btn btn-primary" onclick="toggle_visibility('hide_cust_side')">選擇</a>
-                  </div>
-                </div> -->
+                </div>-->
 
                 <div id="hide_cust_main" style="display:block ; position: relative ; right:40px;">
                   <button class="btn btn-danger" onclick="toggle_visibility('hide_cust_side')">取消</button>
@@ -142,24 +134,31 @@
                   <img class='combo-food-img' id='combo-food-img3' src='img/麥香魚.png' />
                 </div>
                 <div class="col-3">
-                  <button type="button" class="btn btn-success combo-word-vertical-center"
+                  <button type="button" class="btn btn-success combo-word-vertical-center word-group-2"
                     onclick="toggle_visibility('hide_drink')">
                     變更飲料
                   </button>
                 </div>
+                <div class="col-3">
+                  <button type="button" class="btn btn-success combo-word-vertical-center word-group-1"
+                    onclick="toggle_visibility('hide_drink_custom')">
+                    產品特製
+                  </button>
+                </div>
               </div>
-
               <div class="row" id="hide_drink" style="display:none;"></div>
+
+              <div class="row" id="hide_drink_custom" style="display:none;"></div>
 
               <div class="row">
                 <div class="col-2">
                   <img class='number-icon' src='img/number-4.png' />
                 </div>
                 <div class="col-3">
-                  <h3 class="combo-word-vertical-center">選擇加價購產品</h3>
+                  <h3 class="combo-word-vertical-center" id='word-1'>選擇加價購產品</h3>
                 </div>
                 <div class="col-3">
-                  <button type="button" class="btn btn-success combo-word-vertical-center"
+                  <button type="button" id="word-2" class="btn btn-success combo-word-vertical-center"
                     onclick="toggle_visibility('hide_addition')">
                     加價購
                   </button>
@@ -173,13 +172,13 @@
             <div class="row">
               <div class="col-2"></div>
               <div class="col-3">
-                <button type="button" class="btn btn-success" id="word-3" onclick="save_current_food_set()">
+                <button type="button" class="btn btn-success word-group-3" id="word-3" onclick="save_current_food_set()">
                   完成
                 </button>
               </div>
               <div class="col-2"></div>
               <div class="col-3">
-                <button type="button" class="btn btn-danger" id="word-3" onclick="exit_single_food()">
+                <button type="button" class="btn btn-danger word-group-4" id="word-3" onclick="exit_single_food()">
                   取消
                 </button>
               </div>

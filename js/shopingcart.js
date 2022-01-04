@@ -1,3 +1,6 @@
+words = ['總價','total'];
+words_group = ['確認','OK','刪除','Delete','確定','confirm','取消','cancel']
+
 order_food=[];
 function load_order_food(){
     order_food = localStorage.getItem('order_food');
@@ -23,11 +26,11 @@ function update_shopingcart(){
             shopingcart_data += '<p class="card-text">'+order_food[i]['food_list'][1]['food_name']+' '+show_custom(order_food[i]['food_list'][1]['custom_name'])+'</p>';
             shopingcart_data += '<p class="card-text">'+order_food[i]['food_list'][2]['food_name']+' '+show_custom(order_food[i]['food_list'][2]['custom_name'])+'</p>';
             shopingcart_data += '<p class="card-text">'+order_food[i]['addon_list'][0]['food_name']+' '+show_custom(order_food[i]['addon_list'][0]['custom_name'])+'</p>';
-            shopingcart_data += '<a class="btn btn-primary" style="width:100px" onclick="save_food_count()">確認</a>';
+            shopingcart_data += '<a class="btn btn-primary word-group-0" style="width:100px" onclick="save_food_count()">確認</a>';
             shopingcart_data += '<button class="btn btn-outline-success" onclick="change_food_count(\''+i+'\',\'1\')"><i class="bi bi-plus-circle"></i></button>';
             shopingcart_data += '<span id="food-count-'+i+'">'+order_food[i]['count']+'</span>';
             shopingcart_data += '<button class="btn btn-outline-success" onclick="change_food_count(\''+i+'\',\'-1\')"><i class="bi bi-dash-circle"></i></button>';
-            shopingcart_data += '<a class="btn btn-danger" style="width:100px" onclick="delete_food(\''+i+'\')">刪除</a>';
+            shopingcart_data += '<a class="btn btn-danger word-group-1" style="width:100px" onclick="delete_food(\''+i+'\')">刪除</a>';
             shopingcart_data += '</div>';
             shopingcart_data += '</div>';
             shopingcart_data += '</div>';
@@ -39,11 +42,11 @@ function update_shopingcart(){
             shopingcart_data += '</div>';
             shopingcart_data += '<div class="card-body">';
             shopingcart_data += '<p class="card-text">'+order_food[i]['food_list'][0]['food_name']+'</p>';
-            shopingcart_data += '<a class="btn btn-primary" style="width:100px" onclick="save_food_count()">確認</a>';
+            shopingcart_data += '<a class="btn btn-primary word-group-0" style="width:100px" onclick="save_food_count()">確認</a>';
             shopingcart_data += '<button class="btn btn-outline-success" onclick="change_food_count(\''+i+'\',\'1\')"><i class="bi bi-plus-circle"></i></button>';
             shopingcart_data += '<span id="food-count-'+i+'">'+order_food[i]['count']+'</span>';
             shopingcart_data += '<button class="btn btn-outline-success" onclick="change_food_count(\''+i+'\',\'-1\')"><i class="bi bi-dash-circle"></i></button>';
-            shopingcart_data += '<a class="btn btn-danger" style="width:100px" onclick="delete_food(\''+i+'\')">刪除</a>';
+            shopingcart_data += '<a class="btn btn-danger word-group-1" style="width:100px" onclick="delete_food(\''+i+'\')">刪除</a>';
             shopingcart_data += '</div>';
             shopingcart_data += '</div>';
             shopingcart_data += '</div>';
@@ -52,9 +55,11 @@ function update_shopingcart(){
     shopingcart_data += '<div class="row">';
     shopingcart_data += '<div class="card text-center">';
     shopingcart_data += '<div class="card-header">';
-    shopingcart_data += '總價<span id="total-price"> $'+get_total_price()+'元</span>';
+    shopingcart_data += words[0+LANGUAGE_OFFSET];
+    shopingcart_data += '<span id="total-price"> $'+get_total_price()+'</span>';
     shopingcart_data += '</div>';
     $('#food-list').html(shopingcart_data);
+    renderPage();
 }
 
 function show_custom(custom){
@@ -64,6 +69,7 @@ function show_custom(custom){
         custom_string += custom[j]['id'];
         custom_string += ":";
         custom_string += custom[j]['value'];
+        custom_string += " ";
     }
     return custom_string;
 }
@@ -124,3 +130,4 @@ function get_total_price(){
 
 load_order_food();
 update_shopingcart();
+renderPage();

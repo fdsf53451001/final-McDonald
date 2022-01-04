@@ -94,6 +94,19 @@ function loadComboDrinks(){
     );
 }
 
+combo_drink_custom_data = [];
+function loadComboDrinksCustom(food_id){
+    console.log(food_id);
+    $.post({
+        url:SERVER_ADDRESS+'get_customer'+LANGUAGE_POSTFIX+'.php?id=\''+food_id+'\'',
+        },function(jsonResult){
+            console.log('load combo drink custom success');
+            combo_drink_custom_data = jsonResult;
+            update_combo_drink_custom();
+        }
+    );
+}
+
 combo_adds_data = [];
 function loadComboAdds(){
     $.post({
