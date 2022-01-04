@@ -115,6 +115,7 @@ function single_food_choose(id,combo_name,default_price,single_id,single_name,im
         $(".food-detail-card")[0].style.display = "none";
         $("#combo-detail-card")[0].style.display = "block";
         $("#combo-food-options")[0].style.display = "none";
+        loadMainFoodCustom(single_id);
 
         current_food_set['combo'] = 0;
         current_food_set['combo_id'] = id;
