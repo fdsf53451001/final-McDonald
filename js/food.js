@@ -1,4 +1,4 @@
-words=['<i class="bi bi-cart-plus-fill" style="color:whites"></i>購物車','<i class="bi bi-cart-plus-fill" style="color:whites"></i>shopping cart','選擇加價購產品','markup foods','加價購','markup']
+words=['<i class="bi bi-cart-plus-fill" style="color:whites"></i>購物車','<i class="bi bi-cart-plus-fill" style="color:whites"></i>shopping cart','選擇加價購產品','markup foods','加價購','markup','無加價購','no markup']
 words_group = ['選擇','choose','產品特製','choose custom','變更內容','change item','確定','confirm','取消','cancel']
 
 // preload food type
@@ -90,7 +90,7 @@ function save_current_food_set(){
 // save current food set
 current_food_set = {};
 function single_food_choose(id,combo_name,default_price,single_id,single_name,img){
-    current_food_set = {combo:0,default_price:0,price:0,count:1,combo_id:-1,combo_name:'',food_list:[{food_id:-1,food_name:'',custom:[],custom_name:[],price:0},{food_id:-1,food_name:'',custom:[],custom_name:[],price:0},{food_id:-1,food_name:'',custom:[],custom_name:[],price:0}],addon_list:[{food_id:-1,food_name:'無加價購',custom:[],custom_name:[],price:0}]};
+    current_food_set = {combo:0,default_price:0,price:0,count:1,combo_id:-1,combo_name:'',food_list:[{food_id:-1,food_name:'',custom:[],custom_name:[],price:0},{food_id:-1,food_name:'',custom:[],custom_name:[],price:0},{food_id:-1,food_name:'',custom:[],custom_name:[],price:0}],addon_list:[{food_id:-1,food_name:words[3*2+LANGUAGE_OFFSET],custom:[],custom_name:[],price:0}]};
     $('#combo-food-img1').attr('src',img);
     if(id[0]==='S'){    //combo here
         $(".food-list")[0].hidden = true;

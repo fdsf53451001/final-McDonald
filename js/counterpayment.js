@@ -1,3 +1,6 @@
+words_group = ['您的訂單正在處理中.......','Your order is being processed .......','訂單已成立','Orders are set up'];
+
+
 function syncDelay(milliseconds){
     var start = new Date().getTime();
     var end=0;
@@ -35,6 +38,7 @@ function countdown(){
     if(timer==3){
         var e = document.getElementById('test');
         e.style.display = 'block';
+        renderPage()
     }
     if((timer<0 && send_order_success==1) || timer<-5){
         document.location="finsh.html";
@@ -45,3 +49,4 @@ function countdown(){
 window.setInterval(countdown,1000);
 load_order_food();
 deal_order();
+renderPage();

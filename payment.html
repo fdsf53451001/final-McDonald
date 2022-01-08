@@ -8,7 +8,10 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="css/payment.css">
-    <title>Hello, world!</title>
+    <title>McDonalds</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./js/global.js"></script>
 
   </head>
   <body>
@@ -24,17 +27,17 @@
     </div>
 
     <div style="display: flex; justify-content: center;">
-      <h4 style='color:white'>請先選擇付款方式</h4>
+      <h4 style='color:white' class='word-group-0'>請先選擇付款方式</h4>
     </div>
 
     <div style="display: flex;justify-content: center;">
       <div class="payment-form" id="cash">
         <img src="img/cash.jpg" style="height: 40vh;width: 20vw;" onclick='location.href="counterpayment.html"'/>
-        <h4 class='word-center' style='color:white'>至櫃檯結帳</h4>
+        <h4 class='word-center word-group-1' style='color:white'>至櫃檯結帳</h4>
       </div>
       <div class="payment-form" id='card'>
         <img src="img/card.jpg" style="height: 40vh;width: 20vw;" onclick='location.href="table.html"'/>
-        <h4 class='word-center' style='color:white'>快速結帳</h4>
+        <h4 class='word-center word-group-2' style='color:white'>快速結帳</h4>
       </div>
     </div>
 
@@ -48,5 +51,11 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
     -->
+    
+    <script>
+      words_group = ['請先選擇付款方式','Please select the payment method first','至櫃檯結帳','Check out at the counter','快速結帳','Quick Checkout'];
+      renderPage();
+    </script>
+
   </body>
 </html>

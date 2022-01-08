@@ -8,6 +8,8 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="css/fastpayment.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./js/global.js"></script>
     <script type="text/javascript">
       var timer=5;
       
@@ -43,8 +45,8 @@
 
   </div> 
   <div class="row text-center" >
-    <div id="timer"><h1 style="color:white">您的號碼牌為1、請將號碼牌放在您的桌上</h1></div>
-    <div><h1 style="color:white">餐廳會有專人提供送餐到桌</h1></div>
+    <div id="timer"><h1 style="color:white" id='word-0'>您的號碼牌為1、請將號碼牌放在您的桌上</h1></div>
+    <div><h1 style="color:white" id='word-1'>餐廳會有專人提供送餐到桌</h1></div>
   </div>
   <div id='test' style="display:none" class="text-center">
   <img  src="img/到桌服務.png"width="288"/>
@@ -59,5 +61,10 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
   -->
+  <script>
+    words = ['您的號碼牌為1、請將號碼牌放在您的桌上','Your license plate is 1, please put the license plate on your table','餐廳會有專人提供送餐到桌','The restaurant will have a person to deliver the food to the table'];
+    renderPage();
+  </script>
+
 </body>
 </html>
