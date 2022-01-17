@@ -220,7 +220,7 @@ function send_food_custom(no,CUID,value){
 order_info=[];
 function load_order_info(){
     $.ajax({
-        url: SERVER_ADDRESS+'get_order_info.php',
+        url: SERVER_ADDRESS+'get_order_info'+LANGUAGE_POSTFIX+'.php',
         type: 'GET',
         data: jQuery.param({OID: '"'+localStorage.getItem('order_id')+'"'}),
         success: function (response) {
