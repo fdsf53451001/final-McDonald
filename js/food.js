@@ -6,7 +6,7 @@ food_type_data = [{"id":"M1","name":"主餐","img":"https:\/\/github.com\/pei-ci
 function update_food_type(){
     append_food = [];
     for(let i=0;i<food_type_data.length;i++){
-        append_food += '<li onclick="food_type_choose(\''+food_type_data[i]['id']+'\')"><a href="#">'+food_type_data[i]['name']+'</a><img class="food-type-photo" src="'+food_type_data[i]['img']+'"></li>';
+        append_food += '<li onclick="food_type_choose(\''+food_type_data[i]['id']+'\')"><a href="#">'+food_type_data[i]['name']+'</a><br/><img class="food-type-photo" src="'+food_type_data[i]['img']+'"></li>';
     }
     $('.menu-item').html(append_food);
     renderPage();
